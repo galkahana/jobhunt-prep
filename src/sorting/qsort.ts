@@ -1,12 +1,20 @@
 // todo: test for index validity
 
 export function qsort(numbers: number[], left = 0, right = numbers.length-1) {
+    if (left < 0 || right >= numbers.length)
+        throw Error('sort range out of range, please provide valid range for input numbers array (left >=0, right < numbers.length)')
+
+    return _qsort(numbers, left, right)
+}
+
+
+function _qsort(numbers: number[], left: number, right: number) {
     const index: number = partition(numbers, left, right)
     if (left < index - 1) { // sort left half
-        qsort(numbers, left, index -1)
+        _qsort(numbers, left, index -1)
     }
     if (index < right) { // sort right half
-        qsort(numbers, index, right)
+        _qsort(numbers, index, right)
     }
 
     return numbers

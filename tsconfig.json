@@ -2,26 +2,18 @@
   "extends": "@tsconfig/node16/tsconfig.json",
   "include": [
     "./src",
-    "./typings",
   ],
   "exclude": [
     "node_modules"
   ],
   "compilerOptions": {
-    "types": [
-      "node"
-    ],    
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "./dist",
-    "typeRoots": [
-      "./typings"
-    ],
     "baseUrl": "./src",
-    "paths": {
-    }
+    "paths": {}
   }
 }

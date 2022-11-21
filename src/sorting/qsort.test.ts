@@ -18,3 +18,11 @@ describe('test plain cases', () => {
 })
 
 
+describe('test error ranges', () => {
+    test('incorrect ranges', () => {
+        expect(() => qsort([ 1, 3, 4, 5, 7 ], -1)).toThrow(/range/)
+
+        expect(() => qsort([ 1, 3, 4, 5, 7 ], 0, 9)).toThrow(/range/)
+
+    })    
+})
