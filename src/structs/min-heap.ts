@@ -3,7 +3,7 @@ export class MinHeap {
 
     min() {
         if(this.data.length === 0)
-            throw Error('heap is empty, no min')
+            throw new Error('heap is empty, no min')
 
         return this.data[0]
     }
@@ -17,7 +17,7 @@ export class MinHeap {
 
     extractMin() {
         if(this.data.length === 0)
-            throw Error('heap is empty, no min')
+            throw new Error('heap is empty, no min')
 
         if(this.data.length === 1) {
             return this.data.pop() as number // pop is truly annoying

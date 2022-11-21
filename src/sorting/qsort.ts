@@ -1,6 +1,6 @@
 export function qsort(numbers: number[], left = 0, right = numbers.length-1) {
     if (left < 0 || right >= numbers.length)
-        throw Error('sort range out of range, please provide valid range for input numbers array (left >=0, right < numbers.length)')
+        throw new Error('sort range out of range, please provide valid range for input numbers array (left >=0, right < numbers.length)')
 
     return _qsort(numbers, left, right)
 }
