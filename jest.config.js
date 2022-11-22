@@ -10,5 +10,6 @@ module.exports = {
         global: {
             lines: 90
         }
-    }
+    },
+    modulePathIgnorePatterns: [ '/dist' ]
 }
