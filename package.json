@@ -10,7 +10,7 @@
     "check": "npm run lint && npm run check-tsc",
     "build": "npx tsc",
     "clean": "rm -rf dist",
-    "test": "npx jest"
+    "test": "npx jest --collect-coverage"
   },
   "author": "",
   "license": "ISC",
