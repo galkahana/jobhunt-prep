@@ -1,7 +1,7 @@
 import { describe, test, expect } from '@jest/globals'
 import { buildGraph, dijsktra } from './dijkstra'
 
-function path(to: string, from: string, prev: Record<string, string>) {
+function path(to: string, prev: Record<string, string>) {
     const track: string[] = []
     let current: string = to
 
@@ -27,10 +27,10 @@ describe('disktra algo', () => {
         ])
 
         const { dist, prev } = dijsktra(graph, 'a')
-        expect(path('f', 'a', prev)).toEqual([ 'a', 'b', 'd', 'f' ])
+        expect(path('f', prev)).toEqual([ 'a', 'b', 'd', 'f' ])
         expect(dist['f']).toEqual(17)
 
-        expect(path('e', 'a', prev)).toEqual([ 'a', 'b', 'c', 'e' ])
+        expect(path('e', prev)).toEqual([ 'a', 'b', 'c', 'e' ])
         expect(dist['e']).toEqual(19)
 
     })
