@@ -1,6 +1,23 @@
 import { describe, test, expect } from '@jest/globals'
 import { MinHeap } from './min-heap'
 
+describe('heap empty', () => {
+    test('check empty through changes', () => {
+        const heap = new MinHeap()
+
+        expect(heap.isEmpty()).toBe(true)
+
+        heap.insertKey(1)
+        expect(heap.isEmpty()).toBe(false)
+
+        heap.extractMin()
+
+        expect(heap.isEmpty()).toBe(true)
+
+    })
+})
+
+
 describe('heap min', () => {
     test('min throws when heap empty', () => {
         const heap = new MinHeap()
@@ -68,4 +85,34 @@ describe('heap extract min', () => {
     })
 
 
+})
+
+describe('descrease key', () => {
+    test('decreasing value changes order properly', () => {
+        const heap = new MinHeap()
+        const helper: number[] = []
+
+        heap.insertKey(10)
+        heap.insertKey(2)
+        heap.insertKey(1)
+        heap.insertKey(7)
+        heap.insertKey(5)
+        heap.insertKey(9)
+        heap.insertKey(4)
+
+        heap.decreaseKey(heap.data.indexOf(5), 3) // changing 5 to 3
+
+        let notEmpty = true
+        do {
+            try {
+                const item = heap.extractMin()
+                helper.push(item)
+            } catch(ex) {
+                notEmpty = false
+            }
+        } while(notEmpty)
+
+        expect(helper).toEqual([ 1, 2, 3, 4, 7, 9, 10 ])
+
+    })
 })
