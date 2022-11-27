@@ -1,5 +1,5 @@
 export class MinHeap {
-    data: number[] = []
+    private data: number[] = []
 
     isEmpty() {
         return this.data.length === 0
@@ -13,17 +13,23 @@ export class MinHeap {
     }
 
 
-    insertKey(key: number) {
-        this.data.push(key)
+    insert(value: number) {
+        this.data.push(value)
 
         this.swapToTop(this.data.length-1)
     }
 
-    decreaseKey(index: number, value: number) {
+    private decreaseIndex(index: number, value: number) {
         this.data[index] = value
         this.swapToTop(index)
     }
-        
+
+    decreaseItem(item: number, value: number) {
+        const index = this.data.findIndex((x) => x === item)
+        if(index == -1)
+            throw new Error('item not in queue')
+        this.decreaseIndex(index, value)
+    }   
 
     extractMin() {
         if(this.data.length === 0)

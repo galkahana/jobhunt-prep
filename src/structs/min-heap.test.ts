@@ -7,7 +7,7 @@ describe('heap empty', () => {
 
         expect(heap.isEmpty()).toBe(true)
 
-        heap.insertKey(1)
+        heap.insert(1)
         expect(heap.isEmpty()).toBe(false)
 
         heap.extractMin()
@@ -28,14 +28,14 @@ describe('heap min', () => {
     test('min stays the right one as items are inserted', () => {
         const heap = new MinHeap()
 
-        heap.insertKey(10)
+        heap.insert(10)
         expect(heap.min()).toEqual(10)
 
-        heap.insertKey(2)
+        heap.insert(2)
         expect(heap.min()).toEqual(2)
 
 
-        heap.insertKey(7)
+        heap.insert(7)
         expect(heap.min()).toEqual(2)
     })
 
@@ -51,7 +51,7 @@ describe('heap extract min', () => {
     test('trivial extract min (1 item) works', () => {
         const heap = new MinHeap()
 
-        heap.insertKey(10)
+        heap.insert(10)
 
         expect(heap.extractMin()).toEqual(10)
         expect(()=>heap.extractMin()).toThrow(/heap is empty/)
@@ -62,13 +62,13 @@ describe('heap extract min', () => {
         const heap = new MinHeap()
         const helper: number[] = []
 
-        heap.insertKey(10)
-        heap.insertKey(2)
-        heap.insertKey(1)
-        heap.insertKey(7)
-        heap.insertKey(5)
-        heap.insertKey(9)
-        heap.insertKey(4)
+        heap.insert(10)
+        heap.insert(2)
+        heap.insert(1)
+        heap.insert(7)
+        heap.insert(5)
+        heap.insert(9)
+        heap.insert(4)
 
         let notEmpty = true
         do {
@@ -92,15 +92,15 @@ describe('descrease key', () => {
         const heap = new MinHeap()
         const helper: number[] = []
 
-        heap.insertKey(10)
-        heap.insertKey(2)
-        heap.insertKey(1)
-        heap.insertKey(7)
-        heap.insertKey(5)
-        heap.insertKey(9)
-        heap.insertKey(4)
+        heap.insert(10)
+        heap.insert(2)
+        heap.insert(1)
+        heap.insert(7)
+        heap.insert(5)
+        heap.insert(9)
+        heap.insert(4)
 
-        heap.decreaseKey(heap.data.indexOf(5), 3) // changing 5 to 3
+        heap.decreaseItem(5, 3) // changing 5 to 3
 
         let notEmpty = true
         do {
@@ -115,4 +115,17 @@ describe('descrease key', () => {
         expect(helper).toEqual([ 1, 2, 3, 4, 7, 9, 10 ])
 
     })
+
+    test('item not in queue', () => {
+        const heap = new MinHeap()
+
+        heap.insert(10)
+        heap.insert(5)
+        heap.insert(9)
+        heap.insert(4)
+
+
+        expect(() =>heap.decreaseItem(3, 1)).toThrow('item not in queue')
+
+    })      
 })
