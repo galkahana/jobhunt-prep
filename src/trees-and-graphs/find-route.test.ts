@@ -26,6 +26,8 @@ describe('hasRoute test', () => {
         expect(hasRoute(graph, 'c', 'f')).toEqual(true)
         expect(hasRoute(graph, 'a', 'a')).toEqual(true)
         expect(hasRoute(graph, 'c', 'b')).toEqual(false)
+        expect(hasRoute(graph, 'w', 'b')).toEqual(false)
+        expect(hasRoute(graph, 'a', 'z')).toEqual(false)
     })
 
 })
