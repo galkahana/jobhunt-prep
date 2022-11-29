@@ -58,6 +58,7 @@ describe('firstCommonAncestor test', () => {
         expect(firstCommonAncestor(sampleTree, findNodeInTree(sampleTree, -2) as TreeNode<number>, findNodeInTree(sampleTree, -1) as TreeNode<number>)?.value).toEqual(3)
         expect(firstCommonAncestor(sampleTree, findNodeInTree(sampleTree, 6) as TreeNode<number>, findNodeInTree(sampleTree, 100) as TreeNode<number>)?.value).toEqual(7)
         expect(firstCommonAncestor(sampleTree, findNodeInTree(sampleTree, 7) as TreeNode<number>, findNodeInTree(sampleTree, 30) as TreeNode<number>)?.value).toEqual(7)
+        expect(firstCommonAncestor(sampleTree, findNodeInTree(sampleTree, 7) as TreeNode<number>, findNodeInTree(sampleTree, 5) as TreeNode<number>)?.value).toEqual(5)
         expect(firstCommonAncestor(sampleTree, findNodeInTree(sampleTree, 7) as TreeNode<number>, { value: 9 })).toEqual(null)
 
     })
