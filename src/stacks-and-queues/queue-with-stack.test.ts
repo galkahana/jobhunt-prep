@@ -1,14 +1,28 @@
 import { describe, test, expect } from '@jest/globals'
-import { Queue } from './queue'
+import { QueueFromStacks } from './queue-with-stack'
 
 
 describe('test queue', () => {
     test('null case', () => {
-        expect(new Queue().top()).toBe(undefined)
+        expect(new QueueFromStacks().top()).toBe(undefined)
     })
 
+    test('is empty', () => {
+        const queue = new QueueFromStacks()
+
+        expect(queue.isEmpty()).toBe(true)
+
+        queue.enqueue(6)
+
+        expect(queue.isEmpty()).toBe(false)
+
+        queue.dequeue()
+
+        expect(queue.isEmpty()).toBe(true)
+    })    
+
     test('enqueues dont change top while no dequeue', () => {
-        const queue = new Queue<number>()
+        const queue = new QueueFromStacks<number>()
 
         queue.enqueue(1)
         expect(queue.top()).toBe(1)
@@ -19,7 +33,7 @@ describe('test queue', () => {
     })
 
     test('dequeue exposes next guy', () => {
-        const queue = new Queue<number>()
+        const queue = new QueueFromStacks<number>()
 
         queue.enqueue(1)
         queue.enqueue(2)
@@ -29,7 +43,7 @@ describe('test queue', () => {
     })
 
     test('full dequeue goes back to none', () => {
-        const queue = new Queue<number>()
+        const queue = new QueueFromStacks<number>()
 
         queue.enqueue(1)
         queue.enqueue(2)

@@ -25,7 +25,7 @@ export function getBuildOrder(projects: string[], dependencies: [string, string]
     // init build queue
     for(const [ , projectNode ] of Object.entries(projectsNodes)) {
         if(projectNode.unbuiltDependencies === 0)
-            buildQueue.enqeue(projectNode)
+            buildQueue.enqueue(projectNode)
     }
 
     let nextProject: ProjectNode | undefined
@@ -35,7 +35,7 @@ export function getBuildOrder(projects: string[], dependencies: [string, string]
             nextProject.built = true
             for(const dependentProject of nextProject.dependents) {
                 --dependentProject.unbuiltDependencies
-                buildQueue.enqeue(dependentProject)
+                buildQueue.enqueue(dependentProject)
             }
         }
     }

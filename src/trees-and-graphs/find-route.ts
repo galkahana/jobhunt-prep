@@ -36,7 +36,7 @@ export function hasRoute(graph: Graph, source: string, target: string): boolean 
     const visitQueue = new Queue<GraphNode>()
     const visitedSet = new Set<string>()
 
-    visitQueue.enqeue(sourceNode)
+    visitQueue.enqueue(sourceNode)
 
     let visitedNode: GraphNode | undefined
     while(visitedNode = visitQueue.dequeue()) {
@@ -46,7 +46,7 @@ export function hasRoute(graph: Graph, source: string, target: string): boolean 
                 return true
     
             for(const neighbor of visitedNode.neighbors) {
-                visitQueue.enqeue(neighbor.to)
+                visitQueue.enqueue(neighbor.to)
             }
         }
     }

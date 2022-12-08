@@ -36,9 +36,9 @@ export class AnimalShelter {
 
     enque(animal: Animal) {
         if(animal instanceof Cat) {
-            this.catsQueue.enqeue({ animal, order: this.counter++ })
+            this.catsQueue.enqueue({ animal, order: this.counter++ })
         } else if (animal instanceof Dog) {
-            this.dogsQueue.enqeue({ animal, order: this.counter++ })
+            this.dogsQueue.enqueue({ animal, order: this.counter++ })
         } else {
             throw("Animal is not dog or cat...we're only receiving either of those.")
         }

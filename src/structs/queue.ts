@@ -21,7 +21,7 @@ export class Queue<T> {
         return result.value
     }
 
-    enqeue(value: T) {
+    enqueue(value: T) {
         const node = { value }
         if(!this.last) {
             this.root = node
